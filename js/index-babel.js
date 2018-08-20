@@ -144,8 +144,6 @@ class Validator {
     }
 }
 
-
-
 submitBTN.addEventListener("click", (event) => {
   let errorcount = 0;
   event.preventDefault();
@@ -211,14 +209,13 @@ submitBTN.addEventListener("click", (event) => {
   }
 
   if(errorcount === 0){
-      completeOrder();
+      orderComplete();
   }
 });
 
-function completeOrder(){
+function orderComplete(){
   document.querySelector(".container section:nth-child(3)").style.width = "100%";
   document.querySelector(".container section:nth-child(3)").style.zIndex = "999";
-  document.querySelector(".container section:nth-child(3) fieldset ul:nth-child(6) div").style.visibility = "visible";
 }
 
 nameInput.addEventListener('keyup', function () {
