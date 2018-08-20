@@ -1,0 +1,383 @@
+//VARIABLES
+@import "_variables";
+
+//MIXINS
+@import "_mixins";
+
+//PLACEHOLDERS
+@import "_placeholders";
+
+
+
+*{
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+html{
+	font-size: 62.5%;
+}
+
+body{
+	background: #666;
+	@extend %color-white;
+	font: 16px/1.25 "Program OT", Arial, sans-serif;
+	@extend %position-relative;
+}
+
+
+
+/* TYPOGRAPHY ================================== */
+h1, h2{
+	@extend %fontweight-Bold;
+	line-height: 1;
+}
+
+h1{
+  @extend %color-charcoal;
+	font-size: 20px;
+  margin-bottom: 3%;
+}
+
+h2{
+  @extend %color-charcoal;
+	font-size: 20px;
+}
+
+h3{
+	@extend %color-white;
+}
+
+h4{
+	color: #000;
+  @extend %fontweight-Bold;
+	font: 14px "Program OT Bold", Arial, sans-serif;
+  margin-bottom: 7%;
+}
+
+p{
+	@extend %color-white;
+  font-size: .8em;
+}
+
+ul {
+  list-style: none;
+  margin: .5px 0;
+}
+
+
+
+/* BASE STRUCTURE =============================== */
+.container{
+  background: $colorWhite;
+  @extend %display-flex;
+  @extend %center-element;
+  @extend %position-relative;
+  height: 900px;
+  width: 1440px;
+
+  section:nth-child(1), section:nth-child(2), section:nth-child(3){
+    @extend %flex-1;
+    padding: 1% 1% 0;
+  }
+
+  section:nth-child(1){
+    @extend %flex-1;
+    background: $colorWhite;
+    margin-bottom: 15%;
+
+    img{
+      @extend %full-width;
+    }
+
+    h2{
+      margin-bottom: 10%;
+      text-align: right;
+    }
+
+    h4:nth-child(4){
+      margin-bottom: 7%;
+    }
+
+    div:nth-child(5){
+      margin-bottom: 15%;
+      @extend %display-flex;
+      justify-content: space-between;
+
+      p{
+        input{
+          cursor: pointer;
+
+          &[type="radio"] {
+              display: none;
+          }
+
+          &[type="radio"]:checked + label{
+            border: solid #000 3px;
+            cursor: pointer;
+            @extend %fontweight-Bold;
+          }
+
+          &[name="size"] + label{
+            background: #e0e0e0;
+            cursor: pointer;
+            padding: 1.5em 3.4em;
+          }
+        }
+      }
+    }
+
+    h4:nth-child(6){
+      margin-bottom: 3%;
+    }
+
+    > p:nth-child(7){
+      @extend %display-flex;
+      justify-content: space-between;
+
+      > label{
+        &:nth-child(1){
+          input{
+            background: #27AE61;
+          }
+        }
+
+        &:nth-child(2){
+          input{
+            background: #EB5757;
+          }
+        }
+
+        &:nth-child(3){
+          input{
+            background: #4F4F4F;
+          }
+        }
+
+        &:nth-child(4){
+          input{
+            background: #2C9CDB;
+          }
+        }
+
+        input{
+          padding: 2em 2.5em;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  section:nth-child(2){
+    grid-area: shipping;
+    background-color: #f2f2f2;
+
+    form{
+      label{
+        @extend %color-charcoal;
+        @extend %fontweight-Bold;
+      }
+
+      input{
+        @extend %full-width;
+        height: 50px;
+        background-color: #eeeeee;
+        border: .5px solid rgba(0,0,0,0.1);
+        margin-bottom: 5%;
+        font-size: 1.6rem;
+        padding: 10px;
+      }
+
+      > div{
+        @extend %display-flex;
+        justify-content: space-between;
+        margin-bottom: 3%;
+
+        div{
+          flex-direction: row;
+          width: 49%;
+        }
+      }
+
+      > div:nth-child(6){
+        div{
+          width: 32%;
+        }
+      }
+
+      fieldset{
+        select{
+          -moz-appearance: none;
+          background-color: #eee;
+          border: .5px solid rgba(0,0,0,0.1);
+          height: 50px;
+          @extend %full-width;
+        }
+      }
+    }
+  }
+
+  section:nth-child(3){
+    grid-area: summary;
+    background-color: #e8e8e8;
+    @extend %position-relative;
+
+    fieldset{
+      > div:nth-child(2){
+        overflow: auto;
+
+        p{
+          font-weight: 700;
+          font-size: 1em;
+
+          &:nth-child(odd){
+            float: left;
+            clear: left;
+          }
+
+          &:nth-child(even){
+            float: right;
+            clear: right;
+          }
+        }
+      }
+
+      ul:nth-child(4){
+        overflow: auto;
+
+        li{
+          @extend %color-charcoal;
+        }
+
+        li:nth-child(1){
+          margin-bottom: 2%;
+        }
+
+        li:nth-child(3){
+          @extend %fontweight-Bold;
+        }
+
+        li:last-child{
+          @extend %fontweight-Bold;
+        }
+
+        li:nth-child(odd){
+          float: left;
+          clear: left;
+        }
+
+        li:nth-child(even){
+          float: right;
+          clear: right;
+        }
+      }
+
+      ul:nth-child(6){
+        li{
+          @extend %color-charcoal;
+
+          &:nth-child(1){
+            @extend %fontweight-Bold;
+            margin-bottom: 5%;
+          }
+        }
+
+        div{
+          background: url(../img/circle-check.svg) no-repeat 0 0 / cover;
+          visibility: hidden;
+          float: left;
+          margin: 50px 0 0 35%;
+          clear: both;
+          width: 30%;
+        }
+      }
+
+      > div:nth-child(7){
+        input{
+          background-color: #27ae61;
+          @extend %color-white;
+          cursor: pointer;
+          width: calc(100% - 2rem);
+          height: 5rem;
+          font-size: 1.2em;
+          @extend %fontweight-Bold;
+          position: absolute;
+          bottom: 1rem;
+          right: 1rem;
+          left: 1rem;
+        }
+      }
+
+      p{
+        @extend %color-charcoal;
+      }
+    }
+  }
+}
+
+button:focus, button:active {
+    outline: 0px;
+    border: .5px solid black;
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type=radio]:checked {
+  transform: scale(1.1);
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0.05rem solid #bbb;
+}
+
+.complete {
+  background-color: #27ae61;
+  @extend %color-white;
+  width: calc(100% - 2rem);
+  height: 5rem;
+  font-size: 1.6rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+}
+
+.error{
+  color: rgb(163, 0, 0);
+  font-weight: 900;
+  padding: 2px;
+}
+
+.inline {
+  @extend %display-flex;
+  justify-content: space-between;
+}
+
+
+
+@media screen and (max-width: 1450px){
+  .container{
+    max-width: 100%;
+  }
+}
+
+
+
+@media screen and (max-width: 1100px){
+  .container{
+    display: block;
+    height: 100%;
+
+    section{
+      max-width: 100%;
+      margin-bottom: 0;
+      padding-bottom: 5% !important;
+    }
+  }
+}

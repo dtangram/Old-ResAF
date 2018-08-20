@@ -1,0 +1,12 @@
+@mixin fonts($fontFamily, $fontSize, $fontWeight) {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+@mixin buttonBorders($borderTL-Radius, $borderTR-Radius, $borderBL-Radius, $borderBL-Radius) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 0;
+}
